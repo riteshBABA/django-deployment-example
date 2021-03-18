@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- {% load static%} -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="{% static "appTwo/css/style.css" %}"/> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>USER PAGE</title>
+  </head>
+  <body>
+    <!-- {% if user_list %}
+      <ol>
+        {% for user in user_list %}
+          <li>User info</li>
+          <ul>
+            <li>{{user.fname}}</li>
+            <li>{{user.lname}}</li>
+            <li>{{user.email}}</li>
+          </ul>
+        {% endfor %}
+      </ol>
+    {% else %}
+        <h3>No records of users</h3>
+    {% endif %} -->
+
+    <div class="container">
+      
+      <a href="{% url 'appTwo:index' %}">Click to goto index</a>
+      <h1>Enter your details</h1>
+      <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+  </body>
+</html>

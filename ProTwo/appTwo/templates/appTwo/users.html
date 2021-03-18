@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "appTwo/base.html" %}
+    {% block body_block %}
+<div class="container">
+  <div class="jumbotron">
+  <h3><a href="{% url 'appTwo:index' %}">Click to goto HomePage</a></h3>
+  {% if registered %}
+  <h1>Thank you for registering</h1>
+  {% else %}
+
+  <h1>Register</h1>
+  <h3>Enter your details</h3>
+  <form method="post" enctype="multipart/form-data">
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Register">
+  </form>
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
